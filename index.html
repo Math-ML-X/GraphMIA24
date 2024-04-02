@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <meta name="keywords" content="miccai, tutorial, miccai-2023, miccai2023, computer vision, machine learning, graph, hypergraph, medical image analysis, GrapHMedIA">
+
+  <link rel="shortcut icon" href="./img/GrapHMedIA-small.png">
+
+
+
+  <title>GrapHMedIA: Graph and Hypergraph Learning in Medical Image Analysis</title>
+  <meta name="description" content="Tutorial in Conjunction with MICCAI 2023---">
+  <!-- 2023 MICCAI Tutorial on Graph and Hypergraph Learning in Medical Image Analysis (GrapHMedIA) -->
+  <!--Open Graph Related Stuff-->
+  <meta property="og:title" content="GrapHMedIA: Graph and Hypergraph Learning in Medical Image Analysis"/>
+  <!-- <meta property="og:url" content="https://cvpr2022-tutorial-diffusion-models.github.io"/> -->
+  <meta property="og:description" content="Tutorial in Conjunction with MICCAI 2023"/>
+  <meta property="og:site_name" content="GrapHMedIA: Graph and Hypergraph Learning in Medical Image Analysis"/>
+  <!-- <meta property="og:image" content="https://cvpr2022-tutorial-diffusion-models.github.io/img/thumbnail.png"/> -->
+  <!-- <meta property="og:image:url" content="https://cvpr2022-tutorial-diffusion-models.github.io/img/thumbnail.png"/> -->
+
+  <!--Twitter Card Stuff-->
+  <!-- <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:creator" content="@ArashVahdat"> -->
+  <meta name="twitter:title" content="GrapHMedIA: Graph and Hypergraph Learning in Medical Image Analysis"/>
+  <!-- <meta name="twitter:image" content="https://cvpr2022-tutorial-diffusion-models.github.io/img/thumbnail.png">
+  <meta name="twitter:url" content="https://cvpr2022-tutorial-diffusion-models.github.io/"/>            -->
+  <meta name="twitter:description" content="Tutorial on GrapHMedIA in Conjunction with MICCAI 2023"/>
+
+  <!-- CSS  -->
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/main.css?1" media="screen,projection">
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/ff6e9b10da.js" crossorigin="anonymous"></script>
+</head>
+
+  <body>
+
+    <!-- <div class="top-strip"></div> -->
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/"></a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <!-- <span class="icon-bar"></span> -->
+      </button>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+	      <li><a href="#organisers">Organisers</a></li>
+        <li><a href="#talks">Schedule</a></li>
+        <li><a href="#lectures">Lectures</a></li>
+        <!-- <li><a href="#organizers">Organising Team</a></li> -->
+        </ul>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+    <div class="container">
+      <div class="page-content">
+          <p><br /></p>
+<div class="row">
+  <div class="col-xs-12">
+  <center><h2><b>MICCAI 2023 Tutorial</b></h2></center>
+  <center>
+    <a>
+        <img width="300px" src="./img/miccai2023.png" />
+    </a>
+  </center>
+  <br>
+  <br>
+  <br>
+  <center><h2><b>GrapHMedIA</h2></center>
+  <center><h1>Graph and Hypergraph Learning in Medical Image Analysis </h1></center>
+        <!-- <center><b>Dates</b>: Sunday June 19, 8:30 am - 12:10 pm (CDT) -->
+        <center><h1>Dates: 12 October 2023 -- 8:30am </h1>
+        <!--
+        <font color="#76b900"><b><a target="_blank" href="https://www.youtube.com/watch?v=n0p1zz0ZFiY">Live Session Recording</a></b></font></center> 
+        <center><b>Time slot 2</b>: <strike>Sunday 23 August, 6:30 am - 8:00 am (PDT)</strike>, <font color="#76b900"><b><a target="_blank" href="https://www.youtube.com/watch?v=mYD783Z-wb8">Live Session Recording</a></b></font></center>
+        <center>ECCV 2020 <font color="#76b900"> <b><a target="_blank" href="https://workshopsandtutorials.eccv2020.eu/papers/category/tutorial-sunday-aug-23/new-frontiers-for-learning-with-limited-labels-or-data/">Microsite</a></b></font>, Pre-recorded talks: Youtube <font color="#76b900"><b><a target="_blank" href="https://www.youtube.com/playlist?list=PLDEjP3Cd-gys9TC1RuboblGzwfsaJ9FxU">Playlist</a></b></font>, Bilibili <font color="#76b900"><b><a target="_blank" href="https://www.bilibili.com/read/cv7268682?share_source=copy_link&amp;share_medium=iphone&amp;bbid=Z34AB836729C35E84416ACBF44A761007D7D&amp;ts=1598042304">Playlist</a></b></font>
+        -->
+        </center>
+  </div>
+</div>
+
+<center>
+  <br>
+  <a>
+      <img src="./img/GrapHMedIA.png" />
+  </a>
+  </center>
+
+<!-- <center>
+<br>
+<a>
+    <img width="300px" src="./img/miccai2023.png" />
+</a>
+<br>
+<a>
+    <img src="./img/GrapHMedIA.png" />
+</a>
+</center> -->
+
+<!-- <br>
+<p style="color:red;text-align:center">
+<b> &#x1F4E2; &#x1F3A5; Check <a href="https://drive.google.com/file/d/1DYHDbt1tSl9oqm3O333biRYzSCOtdtmn/view?usp=sharing">this Google drive link</a> for our tutorial slides and this <a href="https://www.youtube.com/watch?v=cS6JQpEY9cs">YouTube link</a> for the video recording.</b>
+</p>
+<br> -->
+
+<br/>
+<h2>Overview</h2>
+<br/>
+<p>
+Graphs and hypergraphs have been increasingly used in medical image analysis due to their ability to represent complex relationships and interactions between different elements of an image. In medical images, different anatomical structures, physiological functions, and pathological conditions are interconnected in intricate ways. Graph-based approaches allow for the efficient representation and analysis of these interconnections, providing a powerful tool for understanding the structure and function of the human body. Hypergraphs extend the graph framework by allowing for the representation of higher-order interactions between image elements, enabling a more comprehensive understanding of the complex relationships in medical images. By leveraging the power of graphs and hypergraphs, medical image analysis can help clinicians make more accurate diagnoses, develop better treatment plans, and ultimately improve patient outcomes.	
+</p>
+<p>
+  This tutorial seeks to draw attention to the current developments in graph learning and high-order relations via hypergraph learning for medical image analysis. The main objective is to explore the vast literature and recent developments in the area of graph and hypergraph learning for medical data. We will provide a discussion on the state-of-the-art, current challenges, and opportunities. We aim to organise this tutorial to provide to the audience with the foundations and current developments on graph and hypergraph learning. We will provide real-world case studies such as graph and hypergraphs for medical image classification and reconstruction.
+</p>
+<p>
+  After following our tutorial, attendees will be able to:<br>
+●	identify the mechanisms behind graphs and graph neural networks<br>
+●	identify the characteristics of hypergraphs and main properties<br>
+●	have an overview of the state-of-the-art in graph and hypergraph learning in medical image analysis<br>
+●	identify existing challenges and opportunities of graph and hypergraph learning when using medical data<br>
+●	critically identify the advantages of graph and hypergraph learning and relevant components<br>
+</p>
+<br id="organisers" /><br/>
+
+
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Organising Committee</h2>
+    <h3>Alphabetic Order</h3><br>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+  <div class="row">
+    <div class="col-xs-3" id="angelica">
+      <center>
+      <a href="https://angelicaiaviles.wordpress.com">
+        <img class="people-pic" src="./img/people/angelica.png" />
+      </a>
+      <div class="people-name">
+        <a href="https://angelicaiaviles.wordpress.com">Angelica I Aviles-Rivero</a>
+        <h6>University of Cambridge</h6>
+      </div>
+    </center>
+    </div>
+    <div class="col-xs-3" id="andrey">
+      <center>
+      <a href="https://andreybryutkin.netlify.app/about">
+        <img class="people-pic" src="./img/people/andrey.jpeg" />
+      </a>
+      <div class="people-name">
+         <a href="https://andreybryutkin.netlify.app/about">Andrey Bryutkin</a>
+        <h6>University of Cambridge</h6>
+      </div>
+    </center>
+    </div>
+    <div class="col-xs-3" id="yue">
+      <center>
+      <a href="https://www.gaoyue.org">
+        <img class="people-pic" src="./img/people/yue.jpeg" />
+      </a>
+      <div class="people-name">
+        <a href="https://www.gaoyue.org">Yue Gao</a>
+        <h6>Tsinghua University</h6>
+      </div>
+    </center>
+    </div>
+    <div class="col-xs-3" id="jiahao">
+      <center>
+      <a href="https://www.researchgate.net/profile/Jiahao-Huang-15">
+        <img class="people-pic" src="./img/people/jiahao.jpeg" />
+      </a>
+      <div class="people-name">
+         <a href="https://www.researchgate.net/profile/Jiahao-Huang-15">Jiahao Huang</a>
+        <h6>Imperial College London</h6>
+      </div>
+    </center>
+    </div>
+  </div>
+  </div>
+	
+  <div class="col-xs-12">
+  <div class="row">
+    <div class="col-xs-4" id="carola">
+      <center>
+      <a href="https://www.damtp.cam.ac.uk/user/cbs31/Home.html">
+        <img class="people-pic" src="./img/people/carola.png" />
+      </a>
+       <div class="people-name">
+          <a href="https://www.damtp.cam.ac.uk/user/cbs31/Home.html">Carola-Bibiane Schonlieb</a>
+        <h6>University of Cambridge</h6>
+      </div>
+    </center>
+    </div>
+    <div class="col-xs-4" id="emma">
+      <center>
+      <a href="https://emma-sjwang.github.io">
+        <img class="people-pic" src="./img/people/emma.png" />
+      </a>
+      <div class="people-name">
+         <a href="https://emma-sjwang.github.io">Shujun Wang</a>
+        <h6>University of Cambridge</h6>
+      </div>
+    </center>
+    </div>
+
+    <div class="col-xs-4" id="guang">
+    <center>
+      <a href="https://www.imperial.ac.uk/people/g.yang">
+        <img class="people-pic" src="./img/people/guang.png" />
+      </a>
+      <div class="people-name">
+          <a href="https://www.imperial.ac.uk/people/g.yang">Guang Yang</a>
+        <h6>Imperial College London</h6>
+      </div>
+    </center>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+	<center>
+    <div class="col-xs-4"><img src="./img/University_of_Cambridge_logo.svg.png" style="width:70%"/> </div>
+    <div class="col-xs-4"><img src="./img/Tsinghua_University_logo_and_wordmark_in_Chinese_and_English_characters.svg.png" style="width:70%"/></div>
+    <div class="col-xs-4"><img src="./img/Imperial_logo.png" style="width:70%" /></div>
+	</center>
+  </div>
+
+  <br>
+
+
+<br id="talks" />
+<br>
+<br>
+<div class="row">
+  <div class="col-xs-12">
+     <h2>Schedule</h2>
+     <br>
+     <table class="table schedule" style="border:none !important;">
+      <thead class="thead-light">
+        <tr>
+        <th>Title</th>
+        <th>Speaker</th>
+        <th>Time (CDT)</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+            <td>Introduction</td>
+            <!-- <td><a href="http://arashvahdat.com">Arash Vahdat</a></td> -->
+            <td></td>
+            <td>8:30am</td>
+        </tr>
+
+        <!-- <tr>
+            <td>Part (1): Denoising Diffusion Probabilistic Models</td>
+            <td><a href="http://arashvahdat.com">Arash Vahdat</a></td>
+            <td>08:40 - 09:15</td>
+        </tr> -->
+
+        <tr>
+            <td>Lecture 1: Semi-Supervised Graph Learning for Medical Image Analysis</td>
+            <td><a href="https://angelicaiaviles.wordpress.com">Angelica I Aviles-Rivero</a></td>
+            <td>8.50am</td>
+        </tr>
+
+
+        <tr>
+          <td>Lecture 2: Higher-Order Learning -- Hypergraph Computation for Medical Data</td>
+          <td><a href="https://www.gaoyue.org">Yue Gao</a></td>
+          <td>9.25am</td>
+        </tr>
+        <tr>
+          <td><b>Coffee Break  </b></td>
+          <td> - </td>
+          <td><b>10am</b></td>
+        </tr>
+
+        <tr>
+          <td><s>Lecture 3: Recent Progress – Graph Transformers </s></td>
+          <td><a href="https://andreybryutkin.netlify.app/about">Andrey Bryutkin</a></td>
+          <td>-</td>
+        </tr>
+       
+
+        <tr>
+          <td>Lecture 4: Graph Learning for MRI Reconstruction</td>
+          <td><a href="https://www.researchgate.net/profile/Jiahao-Huang-15">Jiahao Huang</a></td>
+          <td>10.30am</td>
+        </tr>
+       
+
+        <tr>
+          <td>Lecture 5: Graph and Hypergraph Methods for Alzheimer's Disease Diagnosis</td>
+          <td><a href="https://emma-sjwang.github.io">Shujun Wang</a></td>
+          <td>11.05am</td>
+        </tr>
+
+        <tr>
+            <td>Conclusions, Open Problems and Final Remarks</td>
+            <td></td>
+            <td>11.40am</td>
+        </tr>
+
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<br id="lectures" />
+<br>
+<h2>Lecture Detail</h2>
+<br>
+<p>
+Lecture 1: Semi-Supervised Graph Learning for Medical Image Analysis <br>
+<span style="font-weight:lighter"><u>Speaker: Angelica I Aviles-Rivero, University of Cambridge</u><br>
+Deep supervised learning is the go-to technique for most state-of-the-art results in tasks such as classification, segmentation, and detection. However, these are heavily dependent on the availability of large and well-representative, expensive data sets. Here, we will focus on graph learning with minimal supervision. We will start by motivating graphs as a natural representation for medical data, along with the power of unlabelled data for designing robust and efficient algorithmic techniques. We will cover, from a minimal supervision perspective: i) classic models including the pros and cons of energy models and need to develop better functionals, ii) hybrid approaches to intertwine classic and deep learning techniques for generating robust solutions. Theory will be accompanied by real-world examples. 
+</span></p>
+
+<p>
+Lecture 2: Higher-Order Learning -- Hypergraph Computation for Medical Data<br>
+<span style="font-weight:lighter"><u>Speaker: Yue Gao, Tsinghua University</u><br>
+Graph learning and graph neural networks have attracted much attention in both research and industrial fields and become very hot topics in these years. It is noted that the world is far more complex than just pairwise connections. Hypergraph, as a generation of graph, is able to formulate such high-order correlations among the data and has been investigated in last decades. In this part, we first introduce the basic concepts and characteristics of hypergraphs. Next, focusing on hypergraph computation, we introduce hypergraph structural modeling, hypergraph structural evolution, and hypergraph neural network models. Finally, we introduce the application of hypergraph computation for medical data.
+</span></p>
+
+<p>
+Lecture 3: Recent Progress – Graph Transformers<br>
+<span style="font-weight:lighter"><u>Speaker: Andrey Bryutkin, University of Cambridge </u><br>
+Graph neural networks (GNNs) have been widely used in representation learning on graphs and achieved state-of-the-art performance in tasks such as node classification. However, most existing GNNs are designed to learn node representations on the fixed and homogeneous graphs. Transformer model has demonstrated its great potential in modeling graph-structured data. Till now, a great variety of Transformers has been proposed to adapt to the data. We first disassemble the existing models and conclude three typical ways to incorporate the graph information into the vanilla Transformer. Afterwards we will look at novel architectures for solving inverse problems and how specific demands of the problems can be implemented in the underlying neural network architecture. 
+</span></p>
+
+<p>
+Lecture 4: Graph Learning for MRI Reconstruction<br>
+<span style="font-weight:lighter"><u>Speaker: Jiahao Huang, Imperial College London</u><br>
+Deep learning models have been widely applied for fast MRI. However, the majority of existing deep learning models for MRI reconstruction work on data with Euclidean or regular grids structures, which fail to explore the high-dimensional features encapsulated in non-Euclidean manifolds extracted from MR data. We will first introduce the existing deep learning-based MRI reconstruction models for data with Euclidean structures. Then we will discuss graph-based models for MRI reconstruction task, from the perspective of the reconstruction quality and the intuitive explainability based on the non-Euclidean graph connections.
+</span></p>
+
+<p>
+Lecture 5: Graph and Hypergraph Methods for Alzheimer's Disease Diagnosis<br>
+<span style="font-weight:lighter"><u>Speaker: Emma Shujun Wang, University of Cambridge</u><br>
+Alzheimer's disease (AD) is a neurodegenerative disease whose molecular mechanisms are activated several years before cognitive symptoms appear. Early detection of AD using deep learning techniques offers several medical and financial benefits. Large high-quality labelled MRI image datasets constitute a significant challenge to achieve accurate AD predictions using CNN models. Thus, the CNN models were not able to learn relationships among individual MRIs and were not generalizable. In this lecture, we will discuss several graph and hypergraph based methods to model the neighbouring relationship for accurate Alzheimer's Disease Diagnosis.
+</p>
+
+<!-- <br id="organizers" />
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Organising Team</h2>
+  </div>
+</div>
+
+<div class="row speaker" id="angelica">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://angelicaiaviles.wordpress.com">
+      <img class="people-pic" src="./img/people/angelica.png" />
+    </a>
+    <div class="people-name">
+      <a href="https://angelicaiaviles.wordpress.com">Angelica I Aviles-Rivero</a>
+      <h6>University of Cambridge</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Angelica I Aviles-Rivero (Senior Research Associate, University of Cambridge) centers on graph-based techniques for (bio-)medical applications, focused on novel functionals (PDEs) with carefully designed priors, allowing intertwining deep learning models. Recognitions include an outstanding paper award (ICML 2020) and elected officer (SIAM SIAG/IS 2022).  
+</div>
+</div>
+
+<div class="row speaker" id="andrey">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://andreybryutkin.netlify.app/about">
+      <img class="people-pic" src="./img/people/andrey.jpeg" />
+    </a>
+    <div class="people-name">
+       <a href="https://andreybryutkin.netlify.app/about">Andrey Bryutkin</a>
+      <h6>University of Cambridge</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Andrey Bryutkin (Graduate Student, University of Cambridge) has an interest in graph-based modeling and the application of neural networks for solving PDEs and inverse problems. The current focus is to combine the new architecture of transformers on graphs for novel neural networks applications on functionals.
+</div>
+</div>
+
+<div class="row speaker" id="yue">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://www.gaoyue.org">
+      <img class="people-pic" src="./img/people/yue.jpeg" />
+    </a>
+    <div class="people-name">
+      <a href="https://www.gaoyue.org">Yue Gao</a>
+      <h6>Tsinghua University</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Yue Gao (Associate Professor, Tsinghua University)  is an Associate Professor in School of Software, Tsinghua University, Beijing, China. His research falls in the field of Artificial Intelligence and Graph Learning. He leads the iMoon laboratory. He has large experience in developing Hypergraph Neural Networks and complex interaction networks with a wide range of real-world applications including medical image analysis. 
+</div>
+</div>
+
+<div class="row speaker" id="jiahao">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://www.researchgate.net/profile/Jiahao-Huang-15">
+      <img class="people-pic" src="./img/people/jiahao.jpeg" />
+    </a>
+    <div class="people-name">
+       <a href="https://www.researchgate.net/profile/Jiahao-Huang-15">Jiahao Huang</a>
+      <h6>Imperial College London</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Jiahao Huang (Graduate Student, Imperial College London) is interested in deep learning-based techniques for inverse problems in magnetic resonance imaging (MRI) like reconstruction and denoising, and relative application for diffusion tensor MRI. He focuses on the graph-based model for MRI reconstruction.
+</div>
+</div>
+
+
+<div class="row speaker" id="carola">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://www.damtp.cam.ac.uk/user/cbs31/Home.html">
+      <img class="people-pic" src="./img/people/carola.png" />
+    </a>
+    <div class="people-name">
+       <a href="https://www.damtp.cam.ac.uk/user/cbs31/Home.html">Carola-Bibiane Schonlieb</a>
+      <h6>University of Cambridge</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Carola-Bibiane Schonlieb (Professor, University of Cambridge)  Head of the Cambridge Image Analysis Group, the Director of the Cantab Capital Institute for Mathematics of Information, and the Director of the Engineering and Physical Sciences Research Council Cambridge Mathematics of Information in Healthcare Hub. Her research interests include variational methods, partial differential equations,  machine learning for image analysis, image processing, and inverse imaging problems.    </div>
+</div>
+
+<div class="row speaker" id="emma">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://emma-sjwang.github.io">
+      <img class="people-pic" src="./img/people/emma.png" />
+    </a>
+    <div class="people-name">
+       <a href="https://emma-sjwang.github.io">Shujun Wang</a>
+      <h6>University of Cambridge</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Shujun Wang (Research Associate, University of Cambridge) specializes in applications on digital health and computational precision medicine designing AI-driven computational methods to enable reliable medical decision-making for precision medicine, covering from disease diagnosis to prognosis, and from medical image computing to multi-modal biomedical data integration.
+  </div>
+</div>
+
+
+
+<div class="row speaker" id="guang">
+  <div class="col-sm-3 speaker-pic">
+    <a href="https://www.imperial.ac.uk/people/g.yang">
+      <img class="people-pic" src="./img/people/guang.png" />
+    </a>
+    <div class="people-name">
+       <a href="https://www.imperial.ac.uk/people/g.yang">Guang Yang</a>
+      <h6>Imperial College London</h6>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <p class="speaker-bio">
+      <br>
+      Guang Yang (Advanced Research Fellow, Imperial College London) has a research group interested in developing novel and translational techniques for imaging and biomedical data analysis. His group focuses on the research and development of data-driven fast imaging, data harmonisation, image segmentation, image synthesis, federated learning, explainable AI etc. He is currently working on a wide range of clinical applications in cardiovascular disease, lung disease and oncology. Read more information about Yang’s Lab at: https://www.yanglab.fyi/  </div>
+</div> -->
+
+
+
+
+
+<br />
+</div></div>
+
+      </div>
+    </div>
+                <div class="section text-gray" id="footer">
+                <div class="container">
+
+                    <div class="row">
+                       <div class="col-sm-6">
+
+                            <!-- <p class="social">
+                                <a href="mailto:organizers@pirm2018.org" class="email" data-animate-hover="shake" data-animate="fadeInUp"><i class="fa fa-envelope"></i></a>
+                            </p> -->
+                        </div>
+                        <!-- /.6 -->  
+                        <div class="col-sm-6">
+                            <p><small>&copy; 2023 <a href="http://nvlabs.github.io" class="external">GrapHMedIA</a>.
+                            Template by <a href="https://nvlabs.github.io/eccv2020-limited-labels-data-tutorial/" class="external"> Shalini De Mello</a>.</small></p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+  </body>
+</html>
